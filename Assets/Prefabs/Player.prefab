@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8925797844708573631}
   - component: {fileID: 8925797844708573629}
   - component: {fileID: 8925797844708573630}
-  - component: {fileID: 8925797844708573628}
   - component: {fileID: 8988219578890071766}
   m_Layer: 0
   m_Name: Player
@@ -62,21 +61,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value:
-    x: 2
-    y: 4
+    x: 0
+    y: 0.1
     z: 0
---- !u!114 &8925797844708573628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8925797844708573616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eeaafdbeb69dc54ea5fc5f202e52e7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8988219578890071766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +137,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 718b4c04d815639499f8f8ae5930ad38, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

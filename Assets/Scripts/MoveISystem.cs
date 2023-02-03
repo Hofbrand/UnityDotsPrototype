@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Unity.Burst;
+using Unity.Collections.LowLevel.Unsafe;
 using Unity.Entities;
 
 [BurstCompile]
@@ -19,13 +20,24 @@ public partial struct MoveISystem : ISystem
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
-        new MoveJob
+        var deltaTime = SystemAPI.Time.DeltaTime;
+        var randomComponent = SystemAPI.GetSingletonRW<RandomComponent>();
+
+        var moveJob = new MoveJob
         {
-            DeltaTime = SystemAPI.Time.DeltaTime,
+            DeltaTime = deltaTime
+        }.ScheduleParallel(state.Dependency);
+
+        moveJob.Complete();
+
+        new RandomJob
+        {
+            RandomComponent = randomComponent
         }.Run();
     }
 }
 
+[BurstCompile]
 public partial struct MoveJob : IJobEntity
 {
     public float DeltaTime;
@@ -34,4 +46,16 @@ public partial struct MoveJob : IJobEntity
 
             aspect.Move(DeltaTime);
         } 
+}
+
+[BurstCompile]
+public partial struct RandomJob : IJobEntity
+{  
+    [NativeDisableUnsafePtrRestriction] public RefRW<RandomComponent> RandomComponent;
+
+    public void Execute(MoveAspect aspect)
+    {
+
+        aspect.Random(RandomComponent);
+    }
 }
