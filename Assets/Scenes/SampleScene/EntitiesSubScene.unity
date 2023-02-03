@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 8925797844708573616, guid: ddcf317d5d2bdc14b9821f786fe12614, type: 3}
-  maxPregabAmount: 3000
+  maxPregabAmount: 10
 --- !u!1 &1635847038
 GameObject:
   m_ObjectHideFlags: 0
